@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/lthymeeaf/layout"
+      layout:decorate="template1">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet"  type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css">
 
 </head>
 <body>
+<div layout:fragment="content1">
 <div class="p-3">
   <div class="card">
     <div class="card-header">Liste patients</div>
@@ -30,6 +33,9 @@
           <td>
             <a onclick="return confirm('Etes vous sure')" th:href="@{/delete(id=${p.id},keyword=${keyword},page=${currentPage})}" class="btn btn-danger">Delete</a>
           </td>
+          <td>
+            <a th:href="@{/editPatient(id=${p.id},keyword=${keyword},page=${currentPage})}" class="btn btn-secondary">Edit</a>
+          </td>
 
 
 
@@ -45,6 +51,7 @@
       </ul>
     </div>
   </div>
+</div>
 </div>
 </body>
 </html>
