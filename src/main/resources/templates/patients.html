@@ -6,7 +6,6 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <link rel="stylesheet"  type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css">
-
 </head>
 <body>
 <div layout:fragment="content1">
@@ -31,10 +30,10 @@
           <td th:text="${p.malade}"></td>
           <td th:text="${p.score}"></td>
           <td>
-            <a onclick="return confirm('Etes vous sure')" th:href="@{/delete(id=${p.id},keyword=${keyword},page=${currentPage})}" class="btn btn-danger">Delete</a>
+            <a onclick="return confirm('Etes vous sure')" th:href="@{/admin/delete(id=${p.id},keyword=${keyword},page=${currentPage})}" class="btn btn-danger">Delete</a>
           </td>
           <td>
-            <a th:href="@{/editPatient(id=${p.id},keyword=${keyword},page=${currentPage})}" class="btn btn-secondary">Edit</a>
+            <a th:href="@{/admin/editPatient(id=${p.id},keyword=${keyword},page=${currentPage})}" class="btn btn-secondary">Edit</a>
           </td>
 
 
