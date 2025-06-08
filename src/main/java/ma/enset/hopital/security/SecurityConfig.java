@@ -28,8 +28,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .formLogin(Customizer.withDefaults())
+                .authorizeHttpRequests(ar->ar.requestMatchers("/webjars/**").permitAll())
                 .authorizeHttpRequests(ar->ar.requestMatchers("/admin/**").hasRole("ADMIN"))
-                .authorizeHttpRequests(ar->ar.requestMatchers("/user/**").hasRole("USER"))
+                .authorizeHttpRequests(ar->ar.requestMatchers("/user/**").hasRole(""))
                 .authorizeHttpRequests(ar->ar.anyRequest().authenticated())
                 .build();
     }
